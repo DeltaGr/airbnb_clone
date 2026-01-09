@@ -1,7 +1,8 @@
-<h1><%= @listing.title %></h1>
+<div class="listing-show-card">
+  <h1><%= @listing.title %></h1>
+  <p><strong>Price:</strong> $<%= @listing.price %> per night</p>
+  <p><strong>Owner:</strong> <%= @listing.user.email %></p>
+  <p><%= @listing.description %></p>
 
-<p><strong>Description:</strong> <%= @listing.description %></p>
-<p><strong>Price:</strong> $<%= @listing.price %> per night</p>
-<p><strong>Owner:</strong> <%= @listing.user.email %></p>
-
-<%= link_to "Back to Listings", listings_path %>
+  <%= link_to "Back to Listings", listings_path, class: "btn" %>
+</div>

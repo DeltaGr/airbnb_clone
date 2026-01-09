@@ -1,0 +1,36 @@
+.listings-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.listing-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  width: 250px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.listing-card h2 {
+  margin-top: 0;
+}
+
+.listing-show-card {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.listing-show-card h1 {
+  margin-top: 0;
+  font-size: 28px;
+}
+
+.listing-show-card p {
+  font-size: 16px;
+  margin: 5px 0;
+}
