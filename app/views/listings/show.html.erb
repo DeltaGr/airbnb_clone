@@ -1,2 +1,7 @@
-<h1>Listings#show</h1>
-<p>Find me in app/views/listings/show.html.erb</p>
+<h1><%= @listing.title %></h1>
+
+<p><strong>Description:</strong> <%= @listing.description %></p>
+<p><strong>Price:</strong> $<%= @listing.price %> per night</p>
+<p><strong>Owner:</strong> <%= @listing.user.email %></p>
+
+<%= link_to "Back to Listings", listings_path %>
