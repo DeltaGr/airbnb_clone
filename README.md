@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Airbnb Clone (Ruby on Rails)
 
-Things you may want to cover:
+This is a full-stack Airbnb-style web application built with Ruby on Rails.
 
-* Ruby version
+## Goal
+Build a clean, portfolio-ready Rails application that demonstrates
+authentication, listings, and bookings.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Planned Features
+- User authentication
+- Listings (create & browse)
+- Bookings with date range
+- Simple Airbnb-inspired design
