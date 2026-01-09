@@ -1,0 +1,13 @@
+<h1>All Listings</h1>
+
+<% @listings.each do |listing| %>
+  <div>
+    <h2><%= link_to listing.title, listing_path(listing) %></h2>
+    <p><%= listing.description %></p>
+    <p>Price: $<%= listing.price %> per night</p>
+    <p>Owner: <%= listing.user.email %></p>
+  </div>
+  <hr>
+<% end %>
+
+<%= link_to "Create New Listing", new_listing_path %>
