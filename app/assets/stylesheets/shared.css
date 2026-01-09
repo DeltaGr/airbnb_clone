@@ -1,9 +1,55 @@
+/* Body & Grundlayout */
+body {
+  font-family: "Arial", sans-serif; /* später ggf. Circular */
+  background-color: #f7f7f7;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Buttons */
 .btn {
   display: inline-block;
-  margin-bottom: 20px;
-  padding: 8px 12px;
-  background-color: #4CAF50;
+  margin: 20px 0;       /* Abstand oben und unten */
+  padding: 10px 15px;
+  background-color: #ff385c;
   color: white;
   text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.btn-container {
+  margin: 20px 0;
+  text-align: center;   /* Button zentrieren */
+}
+
+
+.btn:hover {
+  background-color: #e12d4c;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Flash messages */
+.flash {
+  padding: 10px;
+  margin-bottom: 20px;
   border-radius: 5px;
+}
+
+.flash.notice {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.flash.alert {
+  background-color: #f8d7da;
+  color: #721c24;
 }

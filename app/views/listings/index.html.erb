@@ -1,14 +1,17 @@
-<h1>All Listings</h1>
+<div class="container">
+  <!-- Button in eigenen Container packen -->
+  <div class="btn-container">
+    <%= link_to "Create New Listing", new_listing_path, class: "btn" %>
+  </div>
 
-<%= link_to "Create New Listing", new_listing_path, class: "btn" %>
-
-<div class="listings-container">
-  <% @listings.each do |listing| %>
-    <div class="listing-card">
-      <h2><%= link_to listing.title, listing_path(listing) %></h2>
-      <p><strong>Price:</strong> $<%= listing.price %> per night</p>
-      <p><strong>Owner:</strong> <%= listing.user.email %></p>
-      <p><%= truncate(listing.description, length: 100) %></p>
-    </div>
-  <% end %>
+  <div class="listings-container">
+    <% @listings.each do |listing| %>
+      <div class="listing-card">
+        <h2><%= link_to listing.title, listing_path(listing) %></h2>
+        <p><strong>Price:</strong> $<%= listing.price %> per night</p>
+        <p><strong>Owner:</strong> <%= listing.user.email %></p>
+        <p><%= truncate(listing.description, length: 100) %></p>
+      </div>
+    <% end %>
+  </div>
 </div>
