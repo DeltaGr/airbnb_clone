@@ -1,16 +1,23 @@
-<div class="container">
-  <!-- Button in eigenen Container packen -->
-  <div class="btn-container">
-    <%= link_to "Create New Listing", new_listing_path, class: "btn" %>
-  </div>
-
-  <div class="listings-container">
+<div class="container mt-5">
+  <div class="row gx-4 gy-5 justify-content-center">
     <% @listings.each do |listing| %>
-      <div class="listing-card">
-        <h2><%= link_to listing.title, listing_path(listing) %></h2>
-        <p><strong>Price:</strong> $<%= listing.price %> per night</p>
-        <p><strong>Owner:</strong> <%= listing.user.email %></p>
-        <p><%= truncate(listing.description, length: 100) %></p>
+      <div class="col-12 col-sm-6 col-lg-4">
+        <%= link_to listing_path(listing), class: "text-decoration-none text-dark" do %>
+          <div class="listing-card card border-0 h-100">
+           <%= image_tag "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", class: "card-img-top", alt: listing.title %>
+            <div class="card-body p-3">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <small class="text-muted">Unterkunft</small>
+                <div class="d-flex align-items-center rating">
+                  <span class="text-warning me-1">&#9733;</span>
+                  <small class="text-muted">4,8</small>
+                </div>
+              </div>
+              <h6 class="card-title mb-1"><%= listing.title %></h6>
+              <p class="card-text fw-bold mb-0">€<%= listing.price || 100 %>/Nacht</p>
+            </div>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>
