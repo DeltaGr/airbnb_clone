@@ -1,2 +1,8 @@
-<h1>Listings#show</h1>
-<p>Find me in app/views/listings/show.html.erb</p>
+<div class="listing-show-card">
+  <h1><%= @listing.title %></h1>
+  <p><strong>Price:</strong> $<%= @listing.price %> per night</p>
+  <p><strong>Owner:</strong> <%= @listing.user.email %></p>
+  <p><%= @listing.description %></p>
+
+  <%= link_to "Back to Listings", listings_path, class: "btn" %>
+</div>
