@@ -1,0 +1,19 @@
+<nav class="navbar">
+  <div class="navbar-left">
+    <%= link_to "AirbnbClone", root_path, class: "logo" %>
+    <%= link_to "Unterkünfte", listings_path, class: "nav-main-link" %>
+    <%= link_to "Entdeckungen", "#", class: "nav-main-link" %>
+    <%= link_to "Services", "#", class: "nav-main-link" %>
+  </div>
+
+  <div class="navbar-right">
+    <%= link_to "Werde Gastgeber:in", "#", class: "nav-action" %>
+    <%= link_to "Hilfe‑Center", "#", class: "nav-action" %>
+    <% if user_signed_in? %>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-action" %>
+    <% else %>
+      <%= link_to "Anmelden", new_user_session_path, class: "nav-action" %>
+      <%= link_to "Registrieren", new_user_registration_path, class: "nav-action" %>
+    <% end %>
+  </div>
+</nav>
