@@ -1,8 +1,86 @@
-<div class="listing-show-card">
-  <h1><%= @listing.title %></h1>
-  <p><strong>Price:</strong> $<%= @listing.price %> per night</p>
-  <p><strong>Owner:</strong> <%= @listing.user.email %></p>
-  <p><%= @listing.description %></p>
+<div class="container mt-4">
+  <div class="row">
+    <!-- Linke Seite: Fotos und Details -->
+    <div class="col-lg-8">
 
-  <%= link_to "Back to Listings", listings_path, class: "btn" %>
+      <!-- Titel + Teilen + Herz -->
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="mb-0"><%= @listing.title %></h2>
+        <div>
+          <!-- Teilen-Button -->
+          <button class="btn btn-light me-2">
+            <i class="bi bi-share"></i> Teilen
+          </button>
+          <!-- Herz / Favorit -->
+          <button class="heart-btn">
+            <i class="bi bi-heart"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Bilder Grid -->
+      <div class="row g-2 mb-3">
+        <div class="col-8">
+          <%= image_tag @listing.image_urls&.first || "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=387", class: "img-fluid rounded" %>
+        </div>
+        <div class="col-4">
+          <div class="row g-2">
+            <% (@listing.image_urls || []).drop(1).first(4).each do |img| %>
+              <div class="col-6">
+                <%= image_tag img, class: "img-fluid rounded" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unterkunftsart, Ort, Gastgeber -->
+      <p class="text-muted">
+        <%= @listing.room_type || "Zimmer" %> · <%= @listing.location || "Ort" %> · Privat
+      </p>
+
+      <!-- Bewertungen & Beschreibung -->
+      <div class="mb-3">
+        <div class="d-flex align-items-center mb-2">
+          <span class="text-warning me-1">&#9733;</span>
+          <small class="text-muted"><%= @listing.rating || 4.8 %></small>
+        </div>
+        <p><%= @listing.description || "Keine Beschreibung vorhanden." %></p>
+      </div>
+
+      <!-- Alte Features wieder einbauen (Gäste, Favoriten, etc.) -->
+      <div class="mb-3">
+        <p>Gäste: <%= @listing.guests_count || 1 %></p>
+        <!-- Hier ggf. weitere alte Partials einfügen -->
+      </div>
+
+    </div>
+
+    <!-- Rechte Seite: Booking-Box (sticky) -->
+    <div class="col-lg-4" data-controller="booking" data-booking-target="box" id="booking-box">
+      <div class="card p-3 mb-3">
+        <h5>Buchen</h5>
+        <%= form_with url: bookings_path, method: :post, local: true do |f| %>
+          <%= f.hidden_field :listing_id, value: @listing.id %>
+
+          <div class="mb-2">
+            <%= f.label :check_in, "Check-in" %>
+            <%= f.date_field :check_in, class: "form-control" %>
+          </div>
+
+          <div class="mb-2">
+            <%= f.label :check_out, "Check-out" %>
+            <%= f.date_field :check_out, class: "form-control" %>
+          </div>
+
+          <div class="mb-2">
+            <%= f.label :guests, "Gäste" %>
+            <%= f.number_field :guests, class: "form-control", min: 1, value: 1 %>
+          </div>
+
+          <%= f.submit "Buchen", class: "btn btn-primary w-100" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

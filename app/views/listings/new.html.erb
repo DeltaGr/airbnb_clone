@@ -1,24 +1,37 @@
-<h1>Create a New Listing</h1>
+<div class="container mt-5">
+  <h2>Neues Listing erstellen</h2>
 
-<%= form_with(model: @listing, local: true) do |form| %>
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </div>
+  <%= form_with model: @listing, local: true do |f| %>
+    <div class="mb-3">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
 
-  <div>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %>
-  </div>
+    <div class="mb-3">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: "form-control", rows: 5 %>
+    </div>
 
-  <div>
-    <%= form.label :price %><br>
-    <%= form.number_field :price %>
-  </div>
+    <div class="mb-3">
+      <%= f.label :price %>
+      <%= f.number_field :price, class: "form-control" %>
+    </div>
 
-  <div>
-    <%= form.submit "Create Listing" %>
-  </div>
-<% end %>
+    <div class="mb-3">
+      <%= f.label :room_type %>
+      <%= f.text_field :room_type, class: "form-control" %>
+    </div>
 
-<%= link_to "Back to Listings", listings_path %>
+    <div class="mb-3">
+      <%= f.label :location %>
+      <%= f.text_field :location, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.label :dates %>
+      <%= f.text_field :dates, class: "form-control" %>
+    </div>
+
+    <%= f.submit "Listing erstellen", class: "btn btn-primary" %>
+  <% end %>
+</div>

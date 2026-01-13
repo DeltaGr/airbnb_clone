@@ -14,7 +14,7 @@ class ListingsController < ApplicationController
   def create
     @listing = current_user.listings.build(listing_params)
     if @listing.save
-      redirect_to @listing, notice: "Listing successfully created!"
+      redirect_to listing_path(@listing), notice: "Listing erfolgreich erstellt!"
     else
       render :new, status: :unprocessable_entity
     end
@@ -23,6 +23,6 @@ class ListingsController < ApplicationController
   private
 
   def listing_params
-    params.require(:listing).permit(:title, :description, :price)
+    params.require(:listing).permit(:title, :description, :price, :room_type, :location, :dates)
   end
 end
