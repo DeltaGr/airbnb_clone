@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2026_01_09_125412) do
+ActiveRecord::Schema[7.1].define(version: 2026_01_13_135742) do
   create_table "listings", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -18,6 +18,10 @@ ActiveRecord::Schema[7.1].define(version: 2026_01_09_125412) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "room_type"
+    t.string "dates"
+    t.string "location"
+    t.float "rating"
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 

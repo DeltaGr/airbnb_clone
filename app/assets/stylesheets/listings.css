@@ -1,4 +1,25 @@
+/* Wrapper begrenzt Gesamtbreite, zentriert */
+.listings-wrapper {
+  max-width: 1600px; /* Optional, wie Airbnb */
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Flex-Container der Cards */
+.listings-wrapper > .d-flex {
+  flex-wrap: wrap;   /* Zeilen umbrechen */
+  gap: 24px;         /* horizontal + vertikal Abstand zwischen Cards */
+}
+
+/* Card-Spalte: feste Breite, wächst nicht */
+.listing-col {
+  flex: 0 0 320px;   /* feste Breite */
+}
+
+/* Card selbst */
 .listing-card {
+  width: 100%;        /* füllt die Spalte */
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -6,12 +27,41 @@
   cursor: pointer;
 }
 
+/* Hover-Effekt leicht */
 .listing-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
+/* Bild */
 .listing-card .card-img-top {
   height: 200px;
   object-fit: cover;
+}
+
+/* Herz-Button Airbnb-style */
+.heart-btn {
+  background-color: transparent;  /* Kein Weiß mehr */
+  border: none;                   /* Rahmen entfernen */
+  outline: none;
+  box-shadow: none;               /* Schatten entfernen */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;               /* klickbar */
+  cursor: pointer;
+}
+
+.heart-btn i {
+  color: #ff385c;                 /* Airbnb-Rot */
+  font-size: 1.3rem;
+}
+
+.heart-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Optional: aktives Herz */
+.heart-btn.active i {
+  color: #c81d3f;
 }
